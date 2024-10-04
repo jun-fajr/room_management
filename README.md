@@ -1,6 +1,7 @@
 # Manajemen Ruangan - Odoo Module
 
 **Version**: 1.0
+
 **Author**: Junizar Fajri
 
 ## Summary
