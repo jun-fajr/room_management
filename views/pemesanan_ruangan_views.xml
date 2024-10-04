@@ -1,0 +1,46 @@
+<odoo>
+    <!-- Form View for Pemesanan Ruangan -->
+    <record id="view_pemesanan_ruangan_form" model="ir.ui.view">
+        <field name="name">pemesanan.ruangan.form</field>
+        <field name="model">pemesanan.ruangan</field>
+        <field name="arch" type="xml">
+            <form string="Pemesanan Ruangan">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="ruangan_id" />
+                        <field name="nama_pemesanan" />
+                        <field name="tanggal_pemesanan" />
+                        <field name="status_pemesanan" />
+                        <field name="catatan_pemesanan" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree/List View for Pemesanan Ruangan -->
+    <record id="view_pemesanan_ruangan_tree" model="ir.ui.view">
+        <field name="name">pemesanan.ruangan.tree</field>
+        <field name="model">pemesanan.ruangan</field>
+        <field name="arch" type="xml">
+            <tree string="Pemesanan Ruangan">
+                <field name="name" />
+                <field name="ruangan_id" />
+                <field name="nama_pemesanan" />
+                <field name="tanggal_pemesanan" />
+                <field name="status_pemesanan" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for Pemesanan Ruangan -->
+    <record id="action_pemesanan_ruangan" model="ir.actions.act_window">
+        <field name="name">Pemesanan Ruangan</field>
+        <field name="res_model">pemesanan.ruangan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item for Pemesanan Ruangan -->
+    <menuitem id="submenu_pemesanan_ruangan" name="Pemesanan Ruangan" parent="menu_master_ruangan" action="action_pemesanan_ruangan" sequence="3" />
+</odoo>

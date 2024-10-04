@@ -1,0 +1,9 @@
+<odoo>
+    <record id="seq_pemesanan_ruangan" model="ir.sequence">
+        <field name="name">Pemesanan Ruangan</field>
+        <field name="code">pemesanan.ruangan</field>
+        <field name="prefix">PMSN/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>
