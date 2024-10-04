@@ -44,3 +44,13 @@ class PemesananRuangan(models.Model):
                 record.status_pemesanan = 'on_going'
             elif record.status_pemesanan == 'on_going':
                 record.status_pemesanan = 'done'
+
+    def action_proses_pemesanan(self):
+        for record in self:
+            if record.status_pemesanan == 'draft':
+                record.status_pemesanan = 'on_going'
+
+    def action_selesai_pemesanan(self):
+        for record in self:
+            if record.status_pemesanan == 'on_going':
+                record.status_pemesanan = 'done'
