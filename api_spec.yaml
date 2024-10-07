@@ -1,0 +1,85 @@
+openapi: 3.0.0
+info:
+  title: API Pemesanan Ruangan
+  description: API untuk tracking status pemesanan ruangan di Odoo
+  version: 1.0.0
+paths:
+  # http://localhost:8069/api/pemesanan/1
+  /api/pemesanan/{pemesanan_id}:
+    get:
+      summary: "Tracking Status Pemesanan"
+      description: "Mendapatkan status pemesanan ruangan berdasarkan nomor pemesanan"
+      parameters:
+        - in: path
+          name: pemesanan_id
+          schema:
+            type: integer
+          required: true
+          description: ID Pemesanan Ruangan
+        - in: header
+          name: Authorization
+          required: true
+          description: |
+            Bearer token yang digunakan untuk autentikasi. 
+            Contoh: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZXhwIjoxNjM4NjY3MjAwfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c`
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "Sukses, detail status pemesanan"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nomor_pemesanan:
+                    type: string
+                    example: "New"
+                  ruangan:
+                    type: string
+                    example: "Room Kecil"
+                  nama_pemesanan:
+                    type: string
+                    example: "Jun"
+                  tanggal_pemesanan:
+                    type: string
+                    format: date
+                    example: "2024-10-04"
+                  status_pemesanan:
+                    type: string
+                    example: "done"
+                  catatan_pemesanan:
+                    type: string
+                    example: "sdfsdfdsf"
+        "404":
+          description: "Pemesanan tidak ditemukan"
+        "401":
+          description: "Unauthorized, token tidak valid"
+        "403":
+          description: "Forbidden, token salah"
+      security:
+        - BearerAuth: []
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Pemesanan:
+      type: object
+      properties:
+        nomor_pemesanan:
+          type: string
+        ruangan:
+          type: string
+        nama_pemesanan:
+          type: string
+        tanggal_pemesanan:
+          type: string
+          format: date
+        status_pemesanan:
+          type: string
+        catatan_pemesanan:
+          type: string

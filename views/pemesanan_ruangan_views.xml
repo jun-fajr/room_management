@@ -13,7 +13,7 @@
                 </header>
                 <sheet>
                     <group>
-                        <field name="name" />
+                        <field name="nomor_pemesanan" />
                         <field name="ruangan_id" />
                         <field name="nama_pemesanan" />
                         <field name="tanggal_pemesanan" />
@@ -30,7 +30,7 @@
         <field name="model">pemesanan.ruangan</field>
         <field name="arch" type="xml">
             <tree string="Pemesanan Ruangan">
-                <field name="name" />
+                <field name="nomor_pemesanan" />
                 <field name="ruangan_id" />
                 <field name="nama_pemesanan" />
                 <field name="tanggal_pemesanan" />

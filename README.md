@@ -35,6 +35,9 @@ Modul **Manajemen Ruangan** digunakan untuk manajemen ruangan dan pemesanan ruan
 
 3. **Dependencies**
    Modul ini memiliki dependensi pada modul 'base' yang otomatis akan diinstal jika belum ada.
+4. Instalasi Dependensi JWT
+   Pastikan Anda memiliki library `pyjwt` yang terpasang dalam lingkungan Odoo Anda. Anda bisa menginstalnya menggunakan pip:
+   `pip install PyJWT`
 
 ## Usage
 
@@ -54,6 +57,33 @@ Modul **Manajemen Ruangan** digunakan untuk manajemen ruangan dan pemesanan ruan
 
 - Pemesanan ruangan pada tanggal yang sama dengan ruangan yang telah dipesan akan menghasilkan error validasi, sehingga tidak ada pemesanan ganda pada hari yang sama.
 
+### 4. API Tracking Status Pemesanan
+
+- Untuk mengakses detail pemesanan ruangan melalui API, Anda dapat menggunakan endpoint berikut:Pemesanan ruangan pada tanggal yang sama dengan ruangan yang telah dipesan akan menghasilkan error validasi, sehingga tidak ada pemesanan ganda pada hari yang sama.
+  Gunakan Bearer Token berikut untuk authnya
+
+  > Auth Type: Bearer Token
+  > `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZXhwIjoxNjM4NjY3MjAwfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV\_adQssw5c`
+
+  ```
+  http://localhost:8069/api/pemesanan/{pemesanan_id}
+  contohnya:
+  http://localhost:8069/api/pemesanan/20
+  ```
+
+- Respon API
+
+  ```
+  {
+      "nomor_pemesanan": "PMSN/00020",
+      "ruangan": "Room Kecil",
+      "nama_pemesanan": "Junizar Fajri",
+      "tanggal_pemesanan": "2024-10-07",
+      "status_pemesanan": "done",
+      "catatan_pemesanan": "sdfsdfdsf"
+  }
+  ```
+
 ## Screenshots
 
 1. **Master Ruangan List View**
@@ -67,6 +97,8 @@ Modul **Manajemen Ruangan** digunakan untuk manajemen ruangan dan pemesanan ruan
    ![Pemesanan Ruangan Form](screenshot/5.png)
 6. **Pemesanan Ruangan Form**
    ![Pemesanan Ruangan Form](screenshot/6.png)
+7. API
+   ![http://localhost:8069/api/pemesanan/20](screenshot/api.png)
 
 ## Troubleshooting
 

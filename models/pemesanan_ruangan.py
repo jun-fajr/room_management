@@ -6,7 +6,7 @@ class PemesananRuangan(models.Model):
     _description = 'Pemesanan Ruangan'
     _order = 'tanggal_pemesanan desc'
 
-    name = fields.Char(string='Nomor Pemesanan', required=True, copy=False, readonly=True, index=True, default=lambda self: 'New')
+    nomor_pemesanan = fields.Char(string='Nomor Pemesanan', required=True, copy=False, readonly=True, index=True, default=lambda self: 'New')
     ruangan_id = fields.Many2one('master.ruangan', string='Ruangan', required=True)
     nama_pemesanan = fields.Char(string='Nama Pemesanan', required=True)
     tanggal_pemesanan = fields.Date(string='Tanggal Pemesanan', required=True)
@@ -23,8 +23,8 @@ class PemesananRuangan(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('name', 'New') == 'New':
-            vals['name'] = self.env['ir.sequence'].next_by_code('pemesanan.ruangan') or 'New'
+        if vals.get('nomor_pemesanan', 'New') == 'New':
+            vals['nomor_pemesanan'] = self.env['ir.sequence'].next_by_code('pemesanan.ruangan') or 'New'
         return super(PemesananRuangan, self).create(vals)
     
     @api.constrains('ruangan_id', 'tanggal_pemesanan')
