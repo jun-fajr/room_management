@@ -1,6 +1,6 @@
 # Manajemen Ruangan - Odoo Module
 
-**Version**: 1.0
+**Version**: 1.1
 
 **Author**: Junizar Fajri
 
@@ -14,6 +14,7 @@ Modul **Manajemen Ruangan** digunakan untuk manajemen ruangan dan pemesanan ruan
 - **Pemesanan Ruangan**: Tambah pemesanan baru, kelola status pemesanan, dan pastikan tidak ada pemesanan ganda pada tanggal yang sama.
 - **Proses Pemesanan**: Tersedia tombol untuk memperbarui status pemesanan dari "Draft" ke "On Going" hingga "Done."
 - **Tampilan Grid dan List**: Visualisasi ruangan dalam bentuk Kanban (grid) dan List (daftar).
+- **API Tracking Status Pemesanan.**
 
 ## Installation
 
@@ -57,15 +58,10 @@ Modul **Manajemen Ruangan** digunakan untuk manajemen ruangan dan pemesanan ruan
 
 - Pemesanan ruangan pada tanggal yang sama dengan ruangan yang telah dipesan akan menghasilkan error validasi, sehingga tidak ada pemesanan ganda pada hari yang sama.
 
-### 4. API Tracking Status Pemesanan
+### 4. API Usage
 
-- Untuk mengakses detail pemesanan ruangan melalui API, Anda dapat menggunakan endpoint berikut:Pemesanan ruangan pada tanggal yang sama dengan ruangan yang telah dipesan akan menghasilkan error validasi, sehingga tidak ada pemesanan ganda pada hari yang sama.
-  Gunakan Bearer Token berikut untuk authnya
-
-  > Auth Type: Bearer Token
-  > `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZXhwIjoxNjM4NjY3MjAwfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV\_adQssw5c`
-
-  ```
+- Untuk mengakses detail pemesanan ruangan melalui API, Anda dapat menggunakan endpoint berikut:
+    ```
   http://localhost:8069/api/pemesanan/{pemesanan_id}
   contohnya:
   http://localhost:8069/api/pemesanan/20
@@ -83,6 +79,14 @@ Modul **Manajemen Ruangan** digunakan untuk manajemen ruangan dan pemesanan ruan
       "catatan_pemesanan": "sdfsdfdsf"
   }
   ```
+   Gunakan Bearer Token berikut untuk authnya
+
+  > Auth Type: Bearer Token
+  > `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZXhwIjoxNjM4NjY3MjAwfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV\_adQssw5c`
+- Pemesanan ruangan pada tanggal yang sama dengan ruangan yang telah dipesan akan menghasilkan error validasi, sehingga tidak ada pemesanan ganda pada hari yang sama.
+  
+
+ 
 
 ## Screenshots
 
@@ -97,7 +101,7 @@ Modul **Manajemen Ruangan** digunakan untuk manajemen ruangan dan pemesanan ruan
    ![Pemesanan Ruangan Form](screenshot/5.png)
 6. **Pemesanan Ruangan Form**
    ![Pemesanan Ruangan Form](screenshot/6.png)
-7. API
+7. **API**
    ![http://localhost:8069/api/pemesanan/20](screenshot/api.png)
 
 ## Troubleshooting
